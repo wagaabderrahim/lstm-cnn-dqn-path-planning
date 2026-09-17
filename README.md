@@ -68,13 +68,17 @@ This work addresses these fundamental limitations by introducing a **spatiotempo
 │   ├── dueling_cnn_dqn.pth             # Local 11x11 Dueling CNN-DQN (7.60 MB)
 │   └── lstm_cnn_dqn.pth                # Proposed LSTM-CNN-DQN (7.97 MB)
 │
-├── data/                               # Benchmark datasets (.npz archives)
+├── data/                               # Benchmark datasets (.npz & compressed visual .zip)
 │   ├── train_grids_500.npz             # 500 procedural training environments (Seed 42)
-│   └── test_grids_500.npz              # 500 unseen evaluation environments (Seed 100)
+│   ├── test_grids_500.npz              # 500 unseen evaluation environments (Seed 100)
+│   ├── test_env_images_500.zip         # 500 rendered visual PNG environments (4.61 MB)
+│   └── train_env_images_500.zip        # 500 rendered visual PNG environments (4.61 MB)
 │
-├── results/                            # Pre-generated publication figures and logs
+├── results/                            # Publication figures, visual mosaics & logs
 │   ├── training_curves_confidence_bands.png
 │   ├── trajectory_comparisons_3maps.png
+│   ├── test_environments_mosaic_25.png # 5x5 visual contact sheet of 25 benchmark maps
+│   ├── train_environments_mosaic_25.png
 │   └── evaluation_summary_500maps.csv
 │
 ├── src/                                # Core implementation modules
@@ -83,6 +87,7 @@ This work addresses these fundamental limitations by introducing a **spatiotempo
 │   └── replay_buffer.py                # Frame and sequence experience replay buffers
 │
 ├── evaluate.py                         # Single-command evaluation & statistical test script
+├── export_env_images.py                # Visual renderer & archive extractor for .npz grids
 ├── train.py                            # End-to-end training pipeline for all 4 variants
 ├── requirements.txt                    # Python package dependencies
 ├── .gitignore                          # Git tracking rules
@@ -189,6 +194,11 @@ In compliance with the reproducibility policies of *Elsevier* and *Engineering A
 - **Benchmark Environments**:
   - `data/train_grids_500.npz`: 500 binary occupancy grids generated with seed `42` (obstacle ratio: 0.18).
   - `data/test_grids_500.npz`: 500 completely unseen binary occupancy grids generated with seed `100`.
+  - `data/test_env_images_500.zip`: Compressed archive containing 500 standalone visual PNG maps with marked Start and Goal.
+  - `data/train_env_images_500.zip`: Compressed archive containing 500 standalone visual PNG maps for training.
+  - `results/test_environments_mosaic_25.png`: 5x5 mosaic visual contact sheet displaying 25 representative environments.
+- **Environment Image Exporter**:
+  - Run `python export_env_images.py --dataset both` to re-generate or unpack all PNG maps.
 - **Pretrained Checkpoints**: Full PyTorch weights for Baseline, Local CNN, Dueling CNN, and Proposed LSTM-CNN-DQN in `checkpoints/`.
 
 ---
