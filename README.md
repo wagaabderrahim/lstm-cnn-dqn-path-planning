@@ -95,7 +95,7 @@ This work addresses these fundamental limitations by introducing a **spatiotempo
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/<your-username>/lstm-cnn-dqn-path-planning.git
+git clone https://github.com/wagaabderrahim/lstm-cnn-dqn-path-planning.git
 cd lstm-cnn-dqn-path-planning
 ```
 
@@ -185,7 +185,7 @@ Trained checkpoints and training metric logs (`metrics.csv`) will be saved in `c
 
 In compliance with the reproducibility policies of *Elsevier* and *Engineering Applications of Artificial Intelligence*, all data, simulation environments, evaluation scripts, and pretrained network weights associated with this study are publicly deposited:
 
-- **Source Code & Models**: [https://github.com/<your-username>/lstm-cnn-dqn-path-planning](https://github.com/<your-username>/lstm-cnn-dqn-path-planning)
+- **Source Code & Models**: [https://github.com/wagaabderrahim/lstm-cnn-dqn-path-planning](https://github.com/wagaabderrahim/lstm-cnn-dqn-path-planning)
 - **Benchmark Environments**:
   - `data/train_grids_500.npz`: 500 binary occupancy grids generated with seed `42` (obstacle ratio: 0.18).
   - `data/test_grids_500.npz`: 500 completely unseen binary occupancy grids generated with seed `100`.
